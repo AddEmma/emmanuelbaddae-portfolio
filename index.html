@@ -2,26 +2,66 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emmanuel Brenyah Addae - Web Developer</title>
 
-      <!-- SEO meta -->
-  <meta name="description" content="Portfolio of Emmanuel Brenyah Addae – Web & Mobile Developer skilled in React, Flutter, and Product Management. Available for remote opportunities.">
-  <meta name="keywords" content="Emmanuel B. Addae, AddEmma, Web Developer, Flutter Developer, Remote Developer, Portfolio, React, TypeScript, Ghana">
-  <meta name="author" content="Emmanuel Brenyah Addae">
-  
+    <!-- SEO meta -->
+    <meta name="description" content="Portfolio of Emmanuel Brenyah Addae – Web & Mobile Developer skilled in React, Flutter, and Product Management. Available for remote opportunities.">
+    <meta name="keywords" content="Emmanuel B. Addae, AddEmma, Web Developer, Flutter Developer, Remote Developer, Portfolio, React, TypeScript, Ghana">
+    <meta name="author" content="Emmanuel Brenyah Addae">
+    
     <link rel="stylesheet" href="styles.css">
-    
-    
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="container">
-            <div class="logo">
-                <img src="https://fv5-5.files.fm/thumb_show.php?i=x3ey4tmedw&view&v=1&PHPSESSID=3bd8d87e1790c8d4a7ab767d72a7cf8d5470befb" alt="ADDEMMA Logo" class="logo-img">
+    
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <img src="https://fv5-5.files.fm/thumb_show.php?i=x3ey4tmedw&view&v=1&PHPSESSID=3bd8d87e1790c8d4a7ab767d72a7cf8d5470befb" alt="ADDEMMA Logo" class="loading-logo-img">
             </div>
-            <ul class="nav-links">
+            <div class="loading-spinner">
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring"></div>
+            </div>
+            <p class="loading-text">Loading Portfolio...</p>
+            <div class="loading-bar">
+                <div class="loading-progress" id="loadingProgress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="mainContent" class="main-content">
+        <!-- Navigation -->
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <img src="https://fv5-5.files.fm/thumb_show.php?i=x3ey4tmedw&view&v=1&PHPSESSID=3bd8d87e1790c8d4a7ab767d72a7cf8d5470befb" alt="ADDEMMA Logo" class="logo-img">
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <button class="mobile-nav-toggle" id="mobileNavToggle">☰</button>
+            </div>
+        </nav>
+
+        <!-- Mobile Navigation -->
+        <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+        <nav class="mobile-nav" id="mobileNav">
+            <div class="mobile-nav-header">
+                <div class="logo">
+                    <img src="https://fv5-5.files.fm/thumb_show.php?i=x3ey4tmedw&view&v=1&PHPSESSID=3bd8d87e1790c8d4a7ab767d72a7cf8d5470befb" alt="ADDEMMA Logo" class="logo-img">
+                </div>
+                <button class="mobile-nav-close" id="mobileNavClose">✕</button>
+            </div>
+            <ul class="mobile-nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
@@ -29,36 +69,15 @@
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <button class="mobile-nav-toggle" id="mobileNavToggle">☰</button>
-        </div>
-    </nav>
+        </nav>
 
-    <!-- Mobile Navigation -->
-    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
-    <nav class="mobile-nav" id="mobileNav">
-        <div class="mobile-nav-header">
-            <div class="logo">
-                <img src="https://fv5-5.files.fm/thumb_show.php?i=x3ey4tmedw&view&v=1&PHPSESSID=3bd8d87e1790c8d4a7ab767d72a7cf8d5470befb" alt="ADDEMMA Logo" class="logo-img">
-            </div>
-            <button class="mobile-nav-close" id="mobileNavClose">✕</button>
-        </div>
-        <ul class="mobile-nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="particles"></div>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
         <div class="container">
+            <!-- Left Side - Text Content -->
             <div class="hero-content">
                 <h1>Hi! <br>I'm Emmanuel Brenyah Addae</h1>
-                <p id="heroText">Passionate Web Developer</p>
+                <p id="heroText"></p>
                 <div class="hero-buttons">
                     <a href="#projects" class="btn">View Projects</a>
                     <a href="#contact" class="btn">Get In Touch</a>
@@ -66,342 +85,439 @@
                     <a href="#about" class="btn btn-secondary">Learn More</a>
                 </div>
             </div>
+
+            <!-- Right Side - Visible Coding Scene -->
+            <div class="coding-scene">
+                <div class="monitor">
+                    <div class="screen" id="codeScreen"></div>
+                </div>
+                <div class="monitor-stand"></div>
+                <div class="monitor-base"></div>
+                <div class="desk"></div>
+                
+                <div class="human">
+                    <div class="head">
+                        <div class="hair"></div>
+                        <div class="glasses">
+                            <div class="glass glass-left"></div>
+                            <div class="glass glass-right"></div>
+                        </div>
+                        <div class="eyes">
+                            <div class="eye"></div>
+                            <div class="eye"></div>
+                        </div>
+                    </div>
+                    <div class="body">
+                        <div class="collar"></div>
+                    </div>
+                    <div class="arm arm-left">
+                        <div class="hand"></div>
+                    </div>
+                    <div class="arm arm-right">
+                        <div class="hand"></div>
+                    </div>
+                </div>
+
+                <div class="keyboard">
+                    <div class="key"></div>
+                    <div class="key"></div>
+                    <div class="key"></div>
+                    <div class="key"></div>
+                    <div class="key"></div>
+                    <div class="key"></div>
+                    <div class="key"></div>
+                    <div class="key"></div>
+                    <div class="key"></div>
+                    <div class="key"></div>
+                    <div class="key"></div>
+                    <div class="key"></div>
+                    <div class="key"></div>
+                    <div class="key"></div>
+                    <div class="key"></div>
+                    <div class="key"></div>
+                </div>
+
+                <div class="mouse"></div>
+
+                <div class="coffee">
+                    <div class="steam">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+
+                <div class="plant">
+                    <div class="leaf"></div>
+                    <div class="leaf"></div>
+                    <div class="pot"></div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- About Section -->
+       <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
                 <div class="about-image">
-            <img src="https://fv5-5.files.fm/thumb_show.php?i=55xe6a7bn7&view&v=1&PHPSESSID=3bd8d87e1790c8d4a7ab767d72a7cf8d5470befb" alt="My photo">
-                </div>
-
-    <div class="about-text">
-        <p>I'm a passionate Web & Mobile Developer and final-year Computer Science & Engineering student at UMaT in Ghana. 
-            With hands-on experience from multiple internships, I specialize in building scalable, accessible, and responsive applications using modern technologies.</p>
-        <p>My journey has been shaped by real-world projects where I've collaborated with cross-functional teams, written 
-            clean code, and aligned with design systems. I'm particularly strong in React, TypeScript, JavaScript, and Flutter, 
-            with a keen eye for translating UI/UX designs into pixel-perfect interfaces.</p>
-        <p>I'm also experienced in <b>remote collaboration</b> using GitHub, Slack, Trello, and Agile workflows, enabling me to 
-            thrive in distributed teams across different time zones.</p>
-        <p>Based in Takoradi, Ghana, I'm eager to contribute to open-source technologies that make a global impact. When I'm not 
-            coding, you'll find me leading activities at the Church of Christ Campus Ministry or exploring new technologies.</p>
-    </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-icon">🎓</div>
-                    <h3>E-Learning Platform</h3>
-                    <p>A comprehensive online learning platform designed to provide an engaging educational experience. Features include course management, interactive lessons, progress tracking, and responsive design for seamless learning across all devices.</p>
-                    
-                    <div class="project-tech">
-                        <span class="tech-tag">HTML5</span>
-                        <span class="tech-tag">CSS3</span>
-                        <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">Responsive Design</span>
-                        <span class="tech-tag">Modern UI/UX</span>
+                    <div class="image-card">
+                        <div class="image-wrapper">
+                            <img src="https://fv5-5.files.fm/thumb_show.php?i=55xe6a7bn7&view&v=1&PHPSESSID=3bd8d87e1790c8d4a7ab767d72a7cf8d5470befb" alt="Emmanuel Brenyah Addae">
+                            <div class="image-overlay">
+                                <span>Hellooo!<br>I'm<br>Emmanuel</span>
+                            </div>
+                        </div>
                     </div>
                     
-                    <div class="project-links">
-                        <a href="https://addemma-elearning-platform.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link">
-                            🌐 Live Demo
-                        </a>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">3+</span>
+                            <span class="stat-label">Years Coding</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">3+</span>
+                            <span class="stat-label">Projects</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="project-card">
-                    <div class="project-icon">🎵</div>
-                    <h3>Church Hymnals Mobile App</h3>
-                    <p>A beautiful and intuitive mobile application for accessing church hymns digitally. Features include hymn search, favorites, offline access, and a clean, user-friendly interface optimized for worship services and personal devotion.</p>
+                <div class="about-text">
+                    <p>I’m Emmanuel Brenyah Addae, a Computer Science and Engineering graduate from the University of Mines and Technology (UMaT), Takoradi. 
+                        What began as curiosity about how technology works has evolved into a passion for creating, innovating, and solving problems through code.</p>
                     
-                    <div class="project-tech">
-                        <span class="tech-tag">Flutter</span>
-                        <span class="tech-tag">Dart</span>
-                        <span class="tech-tag">Mobile Development</span>
-                        <span class="tech-tag">Cross-platform</span>
-                        <span class="tech-tag">Offline Support</span>
-                    </div>
+                    <p>I’m driven by the desire to build efficient and user-centered digital experiences that make a real difference. My technical toolkit 
+                        includes Flutter, JavaScript, HTML, CSS, Python, Java, C++, Firebase, and SQL, and I’m always exploring new technologies to grow and 
+                        stay ahead in this ever-evolving field.</p>
                     
-                    <div class="project-links">
-                        <a href="https://addemma.github.io/Church_Hymnals_APK_Test/" target="_blank" rel="noopener noreferrer" class="project-link">
-                            📱 Try Demo
-                        </a>
-                        <a href="#" target="_blank" rel="noopener noreferrer" class="project-link secondary">
-                            📂 Source Code
-                        </a>
+                    <p>I'm also experienced in <b>remote collaboration</b> using GitHub, Slack, Trello, and Agile workflows, enabling me to 
+                        thrive in distributed teams across different time zones.</p>
+                    
+                    <div class="highlight-box">
+                        <p>Based in Takoradi, Ghana, I'm eager to contribute to open-source technologies that make a global impact. When I'm not 
+                            coding, you'll find me leading activities at the Church of Christ Campus Ministry or exploring new technologies.</p>
                     </div>
-                </div>
 
-                 <div class="project-card">
-                    <div class="project-icon">⭕</div>
-                    <h3>Digital Optimal Marking Recognition (OMR) App - Undergoing Project</h3>
-                    <p> Digital Optical Mark Recognition (OMR) App (In Development) <br>A mobile application designed to scan and grade multiple-choice answer sheets using image processing. The app will detect filled answer bubbles, compare them to an answer key, and generate instant results. Built with Flutter and OpenCV, with optional Firebase integration for cloud-based result storage. </p>
-                    
-                    <div class="project-tech">
-                        <span class="tech-tag">Flutter</span>
-                        <span class="tech-tag">Dart</span>
-                        <span class="tech-tag">Mobile Development</span>
-                        <span class="tech-tag">Cross-platform</span>
-                        <span class="tech-tag">Offline & Online Support</span>
-                    </div>
-                    
-                    <div class="project-links">
-                        <a href="#" target="_blank" rel="noopener noreferrer" class="project-link">
-                            📱 Try Demo
-                        </a>
-                        <a href="#" target="_blank" rel="noopener noreferrer" class="project-link secondary">
-                            📂 Source Code
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2 class="section-title">Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Frontend Development</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">HTML5</span>
-                        <span class="skill-tag">CSS3</span>
-                        <span class="skill-tag">SCSS</span>
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">TypeScript</span>
+                    <!-- <div class="skills-tags">
                         <span class="skill-tag">React</span>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h3>Mobile App Development</h3>
-                    <div class="skill-tags">
+                        <span class="skill-tag">TypeScript</span>
                         <span class="skill-tag">Flutter</span>
-                        <span class="skill-tag">Dart</span>
-                        <span class="skill-tag">Cross-platform</span>
-                        <span class="skill-tag">Mobile UI/UX</span>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h3>Design & UX</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Responsive Design</span>
-                        <span class="skill-tag">Figma</span>
-                        <span class="skill-tag">Accessibility</span>
-                        <span class="skill-tag">Vanilla Framework</span>
-                        <span class="skill-tag">Adobe Suite</span>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h3>Development | Testing | Maintenance / Optimization Tools</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Git & GitHub</span>
-                        <span class="skill-tag">Cross-Browser Testing</span>
-                        <span class="skill-tag">Chrome DevTools</span>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h3>Other Technologies</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Node.js</span>
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">C++</span>
-                        <span class="skill-tag">C#</span>
-                        <span class="skill-tag">MySQL</span>
-                        <span class="skill-tag">Microsoft Office</span>
-                    </div>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Remote Work</span>
+                        <span class="skill-tag">Agile</span>
+                    </div> -->
                 </div>
             </div>
         </div>
-    </section>
+        </section>
 
-    <!-- Experience Section -->
-<section id="experience" class="experience">
-  <div class="container">
-    <h2 class="section-title">Work Experience</h2>
-    <div class="experience-grid">
+        <!-- Projects Section -->
+        <section id="projects" class="projects">
+            <div class="container">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-icon">🎓</div>
+                        <h3>E-Learning Platform</h3>
+                        <p>A comprehensive online learning platform designed to provide an engaging educational experience. Features include course management, interactive lessons, progress tracking, and responsive design for seamless learning across all devices.</p>
+                        
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Responsive Design</span>
+                            <span class="tech-tag">Modern UI/UX</span>
+                        </div>
+                        
+                        <div class="project-links">
+                            <a href="https://addemma-elearning-platform.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link">
+                                🌐 Live Demo
+                            </a>
+                        </div>
+                    </div>
 
-      <div class="experience-item">
-        <div class="experience-header">
-          <div class="experience-title">
-            <h3>Product Management Intern</h3>
-            <div class="company">Sommalife Company Ltd</div>
-          </div>
-          <div class="experience-period">Sep – Dec 2024</div>
-        </div>
-        <ul>
-          <li>Created user documentation and training guides to support web/mobile platform adoption.</li>
-          <li>Delivered onboarding and internal training sessions to increase usage and engagement.</li>
-          <li>Collaborated in QA testing, bug reporting, and UI/UX review to improve product quality.</li>
-          <li>Contributed feedback loops that enhanced usability and user experience.</li>
-        </ul>
-      </div>
+                    <div class="project-card">
+                        <div class="project-icon">🎵</div>
+                        <h3>Church Hymnals Mobile App</h3>
+                        <p>A beautiful and intuitive mobile application for accessing church hymns digitally. Features include hymn search, favorites, offline access, and a clean, user-friendly interface optimized for worship services and personal devotion.</p>
+                        
+                        <div class="project-tech">
+                            <span class="tech-tag">Flutter</span>
+                            <span class="tech-tag">Dart</span>
+                            <span class="tech-tag">Mobile Development</span>
+                            <span class="tech-tag">Cross-platform</span>
+                            <span class="tech-tag">Offline Support</span>
+                        </div>
+                        
+                        <div class="project-links">
+                            <a href="https://addemma.github.io/Church_Hymnals_APK_Test/" target="_blank" rel="noopener noreferrer" class="project-link">
+                                📱 Try Demo
+                            </a>
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="project-link secondary">
+                                📂 Source Code
+                            </a>
+                        </div>
+                    </div>
 
-      <div class="experience-item">
-        <div class="experience-header">
-          <div class="experience-title">
-            <h3>Frontend Development Intern</h3>
-            <div class="company">LoGig LLC</div>
-          </div>
-          <div class="experience-period">Sep – Dec 2023</div>
-        </div>
-        <ul>
-          <li>Built reusable React + TypeScript components for scalable web applications.</li>
-          <li>Converted Figma/UI designs into responsive, pixel-perfect interfaces.</li>
-          <li>Worked in Agile sprints using GitHub for version control and team collaboration.</li>
-          <li>Conducted cross-device/browser testing to ensure accessibility and performance.</li>
-          <li>Optimized applications for faster load times and smooth user experience.</li>
-        </ul>
-      </div>
+                    <div class="project-card">
+                        <div class="project-icon">⭕</div>
+                        <h3>Digital Optimal Marking Recognition (OMR) App - Undergoing Project</h3>
+                        <p>Digital Optical Mark Recognition (OMR) App (In Development) <br>A mobile application designed to scan and grade multiple-choice answer sheets using image processing. The app will detect filled answer bubbles, compare them to an answer key, and generate instant results. Built with Flutter and OpenCV, with optional Firebase integration for cloud-based result storage.</p>
+                        
+                        <div class="project-tech">
+                            <span class="tech-tag">Flutter</span>
+                            <span class="tech-tag">Dart</span>
+                            <span class="tech-tag">Mobile Development</span>
+                            <span class="tech-tag">Cross-platform</span>
+                            <span class="tech-tag">Offline & Online Support</span>
+                        </div>
+                        
+                        <div class="project-links">
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="project-link">
+                                📱 Try Demo
+                            </a>
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="project-link secondary">
+                                📂 Source Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-      <div class="experience-item">
-        <div class="experience-header">
-          <div class="experience-title">
-            <h3>Web Development Intern</h3>
-            <div class="company">LoGig LLC – Tech Solutions</div>
-          </div>
-          <div class="experience-period">Sep – Dec 2022</div>
-        </div>
-        <ul>
-          <li>Designed and implemented user-facing interfaces using HTML, CSS, and JavaScript.</li>
-          <li>Integrated backend data into dynamic web applications for real-time functionality.</li>
-          <li>Supported UI/UX design improvements with iterative feedback sessions.</li>
-          <li>Tested websites for compatibility, performance, and accessibility compliance.</li>
-        </ul>
-      </div>
+        <!-- Skills Section -->
+        <section id="skills" class="skills">
+            <div class="container">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Frontend Development</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">HTML5</span>
+                            <span class="skill-tag">CSS3</span>
+                            <span class="skill-tag">SCSS</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">TypeScript</span>
+                            <!-- <span class="skill-tag">React</span> -->
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Mobile App Development</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Flutter</span>
+                            <span class="skill-tag">Dart</span>
+                            <span class="skill-tag">Cross-platform</span>
+                            <span class="skill-tag">Mobile UI/UX</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Design & UX</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Responsive Design</span>
+                            <span class="skill-tag">Figma</span>
+                            <span class="skill-tag">Accessibility</span>
+                            <span class="skill-tag">Vanilla Framework</span>
+                            <span class="skill-tag">Adobe Suite</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Development | Testing | Maintenance / Optimization Tools</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Git & GitHub</span>
+                            <span class="skill-tag">Cross-Browser Testing</span>
+                            <span class="skill-tag">Chrome DevTools</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Other Technologies</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">C++</span>
+                            <span class="skill-tag">C#</span>
+                            <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">Microsoft Office</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <!-- Experience Section -->
+        <section id="experience" class="experience">
+            <div class="container">
+                <h2 class="section-title">Work Experience</h2>
+                <div class="experience-grid">
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div class="experience-title">
+                                <h3>Product Management Intern</h3>
+                                <div class="company">Sommalife Company Ltd</div>
+                            </div>
+                            <div class="experience-period">Sep – Dec 2024</div>
+                        </div>
+                        <ul>
+                            <li>Created user documentation and training guides to support web/mobile platform adoption.</li>
+                            <li>Delivered onboarding and internal training sessions to increase usage and engagement.</li>
+                            <li>Collaborated in QA testing, bug reporting, and UI/UX review to improve product quality.</li>
+                            <li>Contributed feedback loops that enhanced usability and user experience.</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div class="experience-title">
+                                <h3>Frontend Development Intern</h3>
+                                <div class="company">LoGig LLC</div>
+                            </div>
+                            <div class="experience-period">Sep – Dec 2023</div>
+                        </div>
+                        <ul>
+                            <li>Built reusable React + TypeScript components for scalable web applications.</li>
+                            <li>Converted Figma/UI designs into responsive, pixel-perfect interfaces.</li>
+                            <li>Worked in Agile sprints using GitHub for version control and team collaboration.</li>
+                            <li>Conducted cross-device/browser testing to ensure accessibility and performance.</li>
+                            <li>Optimized applications for faster load times and smooth user experience.</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div class="experience-title">
+                                <h3>Web Development Intern</h3>
+                                <div class="company">LoGig LLC – Tech Solutions</div>
+                            </div>
+                            <div class="experience-period">Sep – Dec 2022</div>
+                        </div>
+                        <ul>
+                            <li>Designed and implemented user-facing interfaces using HTML, CSS, and JavaScript.</li>
+                            <li>Integrated backend data into dynamic web applications for real-time functionality.</li>
+                            <li>Supported UI/UX design improvements with iterative feedback sessions.</li>
+                            <li>Tested websites for compatibility, performance, and accessibility compliance.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>Let's Connect</h3>
+                        <p>I'm always interested in new opportunities and collaborations. Whether you have a project in mind or just want to chat about technology, feel free to reach out!</p>
+                        
+                        <div class="contact-item">
+                            <span>📧</span>
+                            <div>
+                                <strong>Email</strong><br>
+                                <a href="mailto:addaebemmanuel@gmail.com" style="color: #667eea; text-decoration: none;">
+                                    addaebemmanuel@gmail.com
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <span>📱</span>
+                            <div>
+                                <strong>Phone / WhatsApp</strong><br>
+                                <a href="tel:+233593543427" style="color: #667eea; text-decoration: none;">+233 59 354 3427</a> | 
+                                <a href="tel:+233242537088" style="color: #667eea; text-decoration: none;">+233 24 253 7088</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <span>💼</span>
+                            <div>
+                                <strong>LinkedIn</strong><br>
+                                <a href="https://www.linkedin.com/in/emmanuel-addae-756894231?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" style="color: #667eea; text-decoration: none;">
+                                    Emmanuel Brenyah Addae
+                                </a>
+                                <p style="font-size: 0.9em; color: #555; margin: 4px 0 0;">
+                                    Here's my LinkedIn page - connect with me professionally.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <span>💻</span>
+                            <div>
+                                <strong>GitHub</strong><br>
+                                <a href="https://github.com/addemma" target="_blank" rel="noopener noreferrer" style="color: #667eea; text-decoration: none;">
+                                    github.com/addemma
+                                </a>
+                                <p style="font-size: 0.9em; color: #555; margin: 4px 0 0;">
+                                    Here's my GitHub page - check out my projects and code.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <span>📍</span>
+                            <div>
+                                <strong>Location</strong><br>
+                                Takoradi, Ghana
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <span>✅</span>
+                            <div>
+                                <strong>Status</strong><br>
+                                Available for remote opportunities
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Form -->
+                    <div class="contact-form">
+                        <h3>Send a Message</h3>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <input type="text" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" placeholder="Your Email" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" placeholder="Subject" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea rows="5" placeholder="Your Message" required></textarea>
+                            </div>
+                            <button type="submit" class="form-submit">Send Message</button>
+                        </form>
+                        
+                        <div class="contact-alternative">
+                            <p><strong>Prefer direct contact?</strong> Send me an email at 
+                                <a href="mailto:addaebemmanuel@gmail.com">addaebemmanuel@gmail.com</a> 
+                                or reach out via WhatsApp at 
+                                <a href="https://wa.me/233593543427" target="_blank" rel="noopener noreferrer">+233 59 354 3427</a> | 
+                                <a href="https://wa.me/233242537088" target="_blank" rel="noopener noreferrer">+233 24 253 7088</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <p>&copy; 2024 ADDEMMA | All rights reserved.</p>
+                <p>Passionate Web Developer | Creating Mobile Solutions with Flutter</p>
+            </div>
+        </footer>
     </div>
-  </div>
-</section>
-
-
-    <!-- Contact Section -->
-   <section id="contact" class="contact">
-  <div class="container">
-    <h2 class="section-title">Get In Touch</h2>
-    <div class="contact-content">
-      <div class="contact-info">
-        <h3>Let's Connect</h3>
-        <p>I'm always interested in new opportunities and collaborations. Whether you have a project in mind or just want to chat about technology, feel free to reach out!</p>
-        
-        <div class="contact-item">
-          <span>📧</span>
-          <div>
-            <strong>Email</strong><br>
-            <a href="mailto:addaebemmanuel@gmail.com" style="color: #667eea; text-decoration: none;">
-              addaebemmanuel@gmail.com
-            </a>
-          </div>
-        </div>
-
-        <div class="contact-item">
-          <span>📱</span>
-          <div>
-            <strong>Phone / WhatsApp</strong><br>
-            <a href="tel:+233593543427" style="color: #667eea; text-decoration: none;">+233 59 354 3427</a> | 
-            <a href="tel:+233242537088" style="color: #667eea; text-decoration: none;">+233 24 253 7088</a>
-          </div>
-        </div>
-        
-        <div class="contact-item">
-          <span>💼</span>
-          <div>
-            <strong>LinkedIn</strong><br>
-            <a href="https://www.linkedin.com/in/emmanuel-addae-756894231?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" style="color: #667eea; text-decoration: none;">
-              Emmanuel Brenyah Addae
-            </a>
-             <p style="font-size: 0.9em; color: #555; margin: 4px 0 0;">
-                Here's my LinkedIn page - connect with me professionally.
-            </p>
-          </div>
-        </div>
-
-        <div class="contact-item">
-          <span>💻</span>
-          <div>
-            <strong>GitHub</strong><br>
-            <a href="https://github.com/addemma" target="_blank" rel="noopener noreferrer" style="color: #667eea; text-decoration: none;">
-              github.com/addemma
-            </a>
-            <p style="font-size: 0.9em; color: #555; margin: 4px 0 0;">
-                Here's my GitHub page - check out my projects and code.
-            </p>
-          </div>
-        </div>
-
-        <div class="contact-item">
-          <span>📍</span>
-          <div>
-            <strong>Location</strong><br>
-            Takoradi, Ghana
-          </div>
-        </div>
-        
-        <div class="contact-item">
-          <span>✅</span>
-          <div>
-            <strong>Status</strong><br>
-            Available for remote opportunities
-          </div>
-        </div>
-      </div>
-      
-      <!-- Contact Form -->
-      <div class="contact-form">
-        <h3>Send a Message</h3>
-        <form id="contactForm">
-          <div class="form-group">
-            <input type="text" placeholder="Your Name" required>
-          </div>
-          <div class="form-group">
-            <input type="email" placeholder="Your Email" required>
-          </div>
-          <div class="form-group">
-            <input type="text" placeholder="Subject" required>
-          </div>
-          <div class="form-group">
-            <textarea rows="5" placeholder="Your Message" required></textarea>
-          </div>
-          <button type="submit" class="form-submit">Send Message</button>
-        </form>
-        
-        <div class="contact-alternative">
-          <p><strong>Prefer direct contact?</strong> Send me an email at 
-            <a href="mailto:addaebemmanuel@gmail.com">addaebemmanuel@gmail.com</a> 
-            or reach out via WhatsApp at 
-            <a href="https://wa.me/233593543427" target="_blank" rel="noopener noreferrer">+233 59 354 3427</a> | 
-            <a href="https://wa.me/233242537088" target="_blank" rel="noopener noreferrer">+233 24 253 7088</a>
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 ADDEMMA | All rights reserved.</p>
-            <p>Passionate Web Developer | Creating Mobile Solutions with Flutter</p>
-        </div>
-    </footer>
+    <!-- End Main Content -->
 
     <script src="script.js"></script>
 </body>
-</html> 
+</html>

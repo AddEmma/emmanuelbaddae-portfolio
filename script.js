@@ -1,4 +1,24 @@
-// Mobile navigation toggle
+// ========================================
+// LOADING SCREEN
+// ========================================
+window.addEventListener("load", function () {
+  const loadingScreen = document.getElementById("loadingScreen");
+  const mainContent = document.getElementById("mainContent");
+
+  // Minimum loading time of 2 seconds for smooth experience
+  setTimeout(function () {
+    loadingScreen.classList.add("hidden");
+    mainContent.classList.add("visible");
+    document.body.style.overflow = "auto";
+  }, 2000);
+});
+
+// Prevent scrolling during loading
+document.body.style.overflow = "hidden";
+
+// ========================================
+// MOBILE NAVIGATION
+// ========================================
 const mobileNavToggle = document.getElementById("mobileNavToggle");
 const mobileNav = document.getElementById("mobileNav");
 const mobileNavOverlay = document.getElementById("mobileNavOverlay");
@@ -26,7 +46,9 @@ mobileNavLinks.forEach((link) => {
   link.addEventListener("click", closeMobileNav);
 });
 
-// Smooth scrolling for navigation links
+// ========================================
+// SMOOTH SCROLLING
+// ========================================
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
     e.preventDefault();
@@ -40,13 +62,56 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-// Animated text typing effect
+// Animated code lines on screen with syntax highlighting
+const codeLines = [
+  { text: "// Building amazing Web Apps & Mobile Apps", class: "comment" },
+  { text: "const developer = {", class: "keyword" },
+  { text: "  name: Emmanuel B. Addae,", class: "string" },
+  { text: '  role: Web Developer | Mobile App Developer",', class: "string" },
+  {
+    text: "  skills: [HTML5, CSS3, JS, Dart, Flutter]",
+    class: "variable",
+  },
+  { text: '  passion: "Innovation"', class: "string" },
+  { text: "};", class: "keyword" },
+  // { text: "", class: "" },
+  { text: "function createMagic() {", class: "function" },
+  { text: "  return code + creativity;", class: "variable" },
+  { text: "}", class: "function" },
+];
+
+function animateCode() {
+  const screen = document.getElementById("codeScreen");
+  screen.innerHTML = "";
+
+  codeLines.forEach((line, index) => {
+    setTimeout(() => {
+      const codeLine = document.createElement("div");
+      codeLine.className = `code-line ${line.class}`;
+      codeLine.textContent = line.text;
+
+      if (index === codeLines.length - 1) {
+        codeLine.innerHTML += '<span class="cursor"></span>';
+      }
+
+      codeLine.style.top = index * 20 + 10 + "px";
+      screen.appendChild(codeLine);
+    }, index * 400);
+  });
+
+  setTimeout(animateCode, 12000);
+}
+
+animateCode();
+
+// Typing text animation
 const texts = [
   "Passionate Web Developer",
   "Building Modern Web Applications",
   "Creating Mobile Solutions with Flutter",
   "Turning Ideas into Digital Reality",
 ];
+
 let currentText = 0;
 let currentChar = 0;
 let isDeleting = false;
@@ -77,10 +142,11 @@ function typeText() {
   setTimeout(typeText, typeSpeed);
 }
 
-// Start typing animation after page load
 setTimeout(typeText, 1000);
 
-// Create floating particles
+// ========================================
+// FLOATING PARTICLES
+// ========================================
 function createParticles() {
   const particles = document.querySelector(".particles");
   const particleCount = 50;
@@ -99,7 +165,9 @@ function createParticles() {
 // Initialize particles
 createParticles();
 
-// Intersection Observer for animations
+// ========================================
+// INTERSECTION OBSERVER FOR ANIMATIONS
+// ========================================
 const observerOptions = {
   threshold: 0.1,
   rootMargin: "0px 0px -50px 0px",
@@ -118,12 +186,13 @@ document.querySelectorAll("section").forEach((section) => {
   observer.observe(section);
 });
 
-// Contact form handling
+// ========================================
+// CONTACT FORM HANDLING
+// ========================================
 document.getElementById("contactForm").addEventListener("submit", function (e) {
   e.preventDefault();
 
   // Get form data
-  const formData = new FormData(this);
   const name = this.querySelector('input[placeholder="Your Name"]').value;
   const email = this.querySelector('input[placeholder="Your Email"]').value;
   const subject = this.querySelector('input[placeholder="Subject"]').value;
@@ -146,7 +215,9 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
   this.reset();
 });
 
-// Add navbar background on scroll
+// ========================================
+// NAVBAR BACKGROUND ON SCROLL
+// ========================================
 window.addEventListener("scroll", () => {
   const nav = document.querySelector("nav");
   if (window.scrollY > 100) {
