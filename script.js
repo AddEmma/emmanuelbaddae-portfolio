@@ -226,3 +226,19 @@ window.addEventListener("scroll", () => {
     nav.style.background = "rgba(10, 10, 10, 0.9)";
   }
 });
+er("scroll", () => {
+  const nav = document.querySelector("nav");
+  if (window.scrollY > 100) {
+    nav.style.background = "rgba(10, 10, 10, 0.95)";
+  } else {
+    nav.style.background = "rgba(10, 10, 10, 0.9)";
+  }
+});
+er("scroll", () => {
+  const nav = document.querySelector("nav");
+  if (window.scrollY > 100) {
+    nav.style.background = "rgba(10, 10, 10, 0.95)";
+  } else {
+    nav.style.background = "rgba(10, 10, 10, 0.9)";
+  }
+});
