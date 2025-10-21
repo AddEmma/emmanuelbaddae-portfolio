@@ -998,7 +998,7 @@ section {
 
 /* ========================================
            ABOUT SECTION - ENHANCED
-           ======================================== */
+   ========================================= */
         .about {
             min-height: 100vh;
             padding: 100px 0;
@@ -1091,7 +1091,7 @@ section {
             display: grid;
             grid-template-columns: 400px 1fr;
             gap: 5rem;
-            align-items: center;
+            align-items: start;
             animation: fadeInUp 1s ease-out 0.3s backwards;
         }
 
@@ -1113,12 +1113,14 @@ section {
             flex-direction: column;
             align-items: center;
             gap: 1.5rem;
+            width: 100%;
         }
 
         .image-card {
             position: relative;
-            width: 350px;
-            height: 350px;
+            width: 100%;
+            max-width: 350px;
+            aspect-ratio: 0.85;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             border-radius: 30px;
             padding: 8px;
@@ -1208,6 +1210,7 @@ section {
             display: flex;
             gap: 1rem;
             width: 100%;
+            max-width: 350px;
         }
 
         .stat-item {
@@ -1360,50 +1363,253 @@ section {
             }
 
             .section-title {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
                 margin-bottom: 2rem;
             }
 
             .about-content {
                 grid-template-columns: 1fr;
-                gap: 3rem;
+                gap: 2.5rem;
             }
 
             .about-image {
-                justify-content: center;
+                width: 100%;
+                max-width: 100%;
+                margin: 0 auto;
             }
 
             .image-card {
-                width: 300px;
-                height: 300px;
+                width: 100%;
+                max-width: 280px;
+                padding: 6px;
+                border-radius: 25px;
+            }
+
+            .image-wrapper {
+                border-radius: 20px;
             }
 
             .about-stats {
-                max-width: 300px;
+                max-width: 280px;
+                gap: 0.8rem;
+            }
+
+            .stat-item {
+                padding: 0.8rem 0.6rem;
+            }
+
+            .stat-number {
+                font-size: 1.5rem;
+            }
+
+            .stat-label {
+                font-size: 0.75rem;
             }
 
             .about-text {
                 font-size: 1rem;
+                line-height: 1.8;
+            }
+
+            .about-text p {
+                padding-left: 12px;
+                margin-bottom: 1.5rem;
+            }
+
+            .about-text p:hover {
+                padding-left: 12px;
+            }
+
+            /* Disable hover effects on mobile */
+            .image-card:hover {
+                transform: none;
+                box-shadow: 
+                    0 20px 60px rgba(102, 126, 234, 0.4),
+                    0 0 0 1px rgba(255, 255, 255, 0.1);
+            }
+
+            .image-card:hover .image-wrapper img {
+                transform: none;
+            }
+
+            .image-overlay {
+                display: none;
+            }
+
+            .stat-item:hover {
+                transform: none;
             }
         }
 
         @media (max-width: 600px) {
+            .about {
+                padding: 50px 0;
+            }
+
+            .container {
+                padding: 0 16px;
+            }
+
             .section-title {
-                font-size: 2rem;
+                font-size: 1.8rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .section-title::after {
+                width: 60px;
+                height: 3px;
+                bottom: -12px;
+            }
+
+            .about-content {
+                gap: 2rem;
             }
 
             .image-card {
-                width: 280px;
-                height: 280px;
+                max-width: 240px;
+                padding: 5px;
+                border-radius: 20px;
+            }
+
+            .image-wrapper {
+                border-radius: 16px;
             }
 
             .about-stats {
-                flex-direction: column;
-                max-width: 280px;
+                max-width: 240px;
+                gap: 0.6rem;
             }
 
             .stat-item {
-                width: 100%;
+                padding: 0.7rem 0.5rem;
+                border-radius: 12px;
+            }
+
+            .stat-number {
+                font-size: 1.4rem;
+                margin-bottom: 0.2rem;
+            }
+
+            .stat-label {
+                font-size: 0.7rem;
+            }
+
+            .about-text {
+                font-size: 0.95rem;
+                line-height: 1.7;
+            }
+
+            .about-text p {
+                margin-bottom: 1.3rem;
+                padding-left: 10px;
+            }
+
+            .about-text p::before {
+                width: 3px;
+                top: 6px;
+            }
+
+            .highlight-box {
+                padding: 1rem;
+                margin-top: 1.3rem;
+                border-left-width: 3px;
+                border-radius: 8px;
+            }
+
+            .highlight-box::before {
+                font-size: 1.3rem;
+                top: 0.7rem;
+                right: 0.7rem;
+            }
+
+            .highlight-box p {
+                font-size: 0.9rem;
+            }
+
+            .skills-tags {
+                gap: 0.5rem;
+                margin-top: 1.3rem;
+            }
+
+            .skill-tag {
+                padding: 0.5rem 0.9rem;
+                font-size: 0.8rem;
+                border-radius: 20px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .about {
+                padding: 40px 0;
+            }
+
+            .container {
+                padding: 0 12px;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .about-content {
+                gap: 1.8rem;
+            }
+
+            .image-card {
+                max-width: 220px;
+                padding: 4px;
+            }
+
+            .about-stats {
+                max-width: 220px;
+                gap: 0.5rem;
+            }
+
+            .stat-item {
+                padding: 0.6rem 0.4rem;
+            }
+
+            .stat-number {
+                font-size: 1.3rem;
+            }
+
+            .stat-label {
+                font-size: 0.65rem;
+            }
+
+            .about-text {
+                font-size: 0.9rem;
+            }
+
+            .about-text p {
+                margin-bottom: 1.2rem;
+            }
+
+            .skill-tag {
+                padding: 0.45rem 0.8rem;
+                font-size: 0.75rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .image-card {
+                max-width: 200px;
+            }
+
+            .about-stats {
+                max-width: 200px;
+            }
+
+            .stat-number {
+                font-size: 1.2rem;
+            }
+
+            .about-text {
+                font-size: 0.85rem;
             }
         }
 
